@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:notess_app/constant/constant.dart';
+import 'package:notess_app/constant.dart';
 import 'package:notess_app/views/notes_view.dart';
 
 void main() async{
