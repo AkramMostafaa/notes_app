@@ -40,7 +40,9 @@ final NoteModel note;
                 ),),
               ),
               trailing: IconButton(
-                onPressed: (){},
+                onPressed: (){
+                  note.delete();
+                },
                 icon:  Icon(
                   FontAwesomeIcons.trash,
                   color:Colors.black.withOpacity(0.4),
