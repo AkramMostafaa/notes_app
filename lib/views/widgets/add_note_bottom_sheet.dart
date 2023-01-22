@@ -4,6 +4,8 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notess_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notess_app/views/widgets/add_note_form.dart';
 
+import '../../cubits/notes_cubit/notes_cubit.dart';
+
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({Key? key}) : super(key: key);
 
@@ -14,9 +16,10 @@ class AddNoteBottomSheet extends StatelessWidget {
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
           listener: (context, state) {
         if (state is AddNoteFailure) {
-           print('faild${state.errorMessage}');
+
         }
         if (state is AddNoteSuccess) {
+          BlocProvider.of<NotesCubit>(context).fetchAllNotes();
           Navigator.pop(context);
         }
       }, builder: (context, state) {
